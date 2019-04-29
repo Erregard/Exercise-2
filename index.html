@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Calculator</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css">
+    <style>
+        .bg-gradient {
+            background-color: rgb(143, 179, 226);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col-12 bg-warning">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1> Calculator</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-5">
+                    <div class="card" style="background-color: rgb(230, 232, 233);">
+                        <div class="card-body">
+                            <form name="form">
+                                <input class="jumbotron align-bottom" name="textview" disabled style="width:401px;">
+                            </form>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row justify-content-between">
+                                        <button onclick="nol()" class="btn btn-danger" style="width: 270px;"
+                                            value="C">C</button>
+                                        <button onclick="del()" class="btn btn-danger" value="DEL">DEL</button>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <button onclick="tambah(7)" class="btn btn-default" value="7">7</button>
+                                        <button onclick="tambah(8)" class="btn btn-default" value="8">8</button>
+                                        <button onclick="tambah(9)" class="btn btn-default" value="9">9</button>
+                                        <button onclick="tambah('/')" class="btn btn-success" value="/">/</button>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <button onclick="tambah(4)" class="btn btn-default" value="4">4</button>
+                                        <button onclick="tambah(5)" class="btn btn-default" value="5">5</button>
+                                        <button onclick="tambah(6)" class="btn btn-default" value="6">6</button>
+                                        <button onclick="tambah('*')" class="btn btn-success" value="X">x</button>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <button onclick="tambah(1)" class="btn btn-default" value="1">1</button>
+                                        <button onclick="tambah(2)" class="btn btn-default" value="2">2</button>
+                                        <button onclick="tambah(3)" class="btn btn-default" value="3">3</button>
+                                        <button onclick="tambah('-')" class="btn btn-success" value="-">-</button>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <button onclick="tambah('.')" class="btn btn-info" value=".">.</button>
+                                        <button onclick="tambah(0)" class="btn btn-default" value="0">0</button>
+                                        <button onclick="hasil()" class="btn btn-primary" value="=">=</button>
+                                        <button onclick="tambah('+')" class="btn btn-success" value="+">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function tambah(num) {
+            document.form.textview.value = document.form.textview.value + num
+        }
+
+        function hasil() {
+            var exp = document.form.textview.value
+            if (exp) {
+                document.form.textview.value = eval(exp)
+            }
+        }
+
+        function nol() {
+            document.form.textview.value = ""
+
+        }
+
+        function del() {
+            var exp = document.form.textview.value
+            document.form.textview.value = exp.substring(0, exp.length - 1)
+        }
+    </script>
+</body>
+
+</html>
